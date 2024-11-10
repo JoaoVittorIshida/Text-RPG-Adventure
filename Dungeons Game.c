@@ -387,7 +387,7 @@ int sistemabatalha(){
                 sorte = (rand() % 10);
                 if(sorte>=8){
                     printf("\nVoce atacou o monstro com um acerto critico, causando %d de dano.\n",((atq*2)-mondef));
-                    monvida = monvida - (15 + atq-mondef);
+                    monvida = monvida - ((atq*2)-mondef);
                 }
                 else{
                     printf("\nVoce atacou o monstro com um acerto normal, causando %d de dano.\n",(atq-mondef));
@@ -428,11 +428,11 @@ int sistemabatalha(){
                             sorte = (rand() % 10);
                             if(sorte>=8){
                                 printf("\nVoce atacou o monstro com um soco de gelo critico, causando %d de dano.\n",(((atq+(atq/2))*2)-mondef));
-                                monvida = monvida - (15 + atq-mondef);
+                                monvida = monvida - (((atq+(atq/2))*2)-mondef);
                             }
                             else{
                                 printf("\nVoce atacou o monstro com um soco de gelo, causando %d de dano.\n",((atq+(atq/2))-mondef));
-                                monvida = monvida - (atq-mondef);
+                                monvida = monvida - ((atq+(atq/2))-mondef);
                             }
                             Sleep(1000);
                             if(monvida<=0){
@@ -550,7 +550,7 @@ int main(){
     FILE *rec;
     rec = fopen("recorde.txt","w+");
     fscanf(rec,"d",&recorde);
-    printf("\nBem vindo!\nRecorde atual: %d salas\n\nPressione qualquer tecla para iniciar o jogo.",recorde);
+    printf("\nBem vindo Text-RPG-Adventure!\nRecorde atual: %d salas\n\nPressione qualquer tecla para iniciar o jogo.",recorde);
     getch();
     //Menu padrão do jogo, contém as escolhas a serem realizadas, sala seguinte é definida aleatóriamente pela função Random
     do{
